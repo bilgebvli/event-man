@@ -1,22 +1,44 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import ExploreHubs from '../views/exploreHubs/index.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: HomeView
+      name: 'exploreHub',
+      component: ExploreHubs
     },
     {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/AboutView.vue')
-    }
+      path: '/auth/sign-in',
+      name: 'signIn',
+      component: () => import('../views/auth/signIn.vue')
+    },
+    {
+      path: '/auth/sign-up',
+      name: 'signUp',
+      component: () => import('../views/auth/signUp.vue')
+    },
+    {
+      path: '/:hubId',
+      name: 'hubDetail',
+      component: () => import('../views/exploreHubs/hubDetail/index.vue')
+    },
+    {
+      path: '/businesses',
+      name: 'businesses',
+      component: () => import('../views/businesses/index.vue')
+    },
+    {
+      path: '/businesses/addBusiness',
+      name: 'addBusiness',
+      component: () => import('../views/businesses/actions/addBusiness.vue')
+    },
+    {
+      path: '/businesses/editBusiness/:businessId',
+      name: 'editBusiness',
+      component: () => import('../views/businesses/actions/editBusiness.vue')
+    },
   ]
 })
 
