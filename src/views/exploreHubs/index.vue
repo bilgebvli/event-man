@@ -3,6 +3,8 @@
 import { defineComponent } from '@vue/composition-api'
 
 export default defineComponent({
-  setup() {}
+  setup() {
+    console.log('wlskjxhß')
+  }
 })
 </script>
